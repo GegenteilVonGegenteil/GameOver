@@ -1,7 +1,6 @@
 /node_modules/
 .idea
 .env
-/logs/
 /public/
 /static/tmpImage/
 /static/uploads/
