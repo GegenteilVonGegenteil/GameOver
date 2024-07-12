@@ -110,8 +110,6 @@ h2 {
     background-image: url("../images/pixelbackground.png");
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100vw;
-    height: calc(100vh - 3rem);
 }
 
 #project {
@@ -147,7 +145,6 @@ h2 {
     justify-content: space-between;
     align-items: center;
     column-gap: 10vw;
-    padding: 2vh 10vw;
 }
 
 #developers {
