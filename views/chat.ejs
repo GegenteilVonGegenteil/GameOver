@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="css/style.css" rel="stylesheet">
+        <title>GameOver - Chat</title>
+    </head>
+
+    <script>
+        const ws = new WebSocket('server-production-b12c.up.railway.app')
+        let room = 'general';
+        let name = 'guest';
+
+        ws.onopen = function () {
+            console.log('websocket is connected ...')
+            ws.send(JSON.stringify({
+                room: room,
+                message: 'connected'
+            }))
+        }
+        ws.onmessage = function (ev) {
+            console.log(ev);
+            addTextMessage(JSON.parse(ev.data))
+        }
+
+        function sendMyMessage() {
+            if (document.getElementById("text").value === "") return
+            let text = document.getElementById("text").value;
+            <% if(currentuser) { %>
+            name = '<%= currentuser.username %>';
+            <% } %>
+            let message = {
+                room: room,
+                message: name + ": " + text
+            }
+            ws.send(JSON.stringify(message))
+            document.getElementById("text").value = "";
+        }
+
+        function addTextMessage(message) {
+            let tag = document.createElement("p");
+            tag.innerHTML = message.message;
+            tag.setAttribute('class', "message")
+            document.getElementById("messages").appendChild(tag);
+        }
+
+        function join(){
+            let chat = document.getElementById("messages")
+            while (chat.firstChild) {
+                chat.removeChild(chat.firstChild);
+            }
+            <% if(currentuser) { %>
+            name = '<%= currentuser.name %>';
+            <% } %>
+
+            ws.send(JSON.stringify({joinRoom: room}))
+            ws.send(JSON.stringify({
+                room: room,
+                message: `${name} connected to ${room}`
+            }))
+        }
+
+        function changeRoom(event) {
+            let chatName = document.getElementById('chatName')
+
+            room = event
+            chatName.innerHTML = `${room}`
+            join()
+        }
+
+    </script>
+
+    <body>
+        <%- include("header") -%>
+        <div>
+            <h1 id="chatTitle">Chat Rooms</h1>
+            <div class="centerdiv">
+                <div id="chat">
+                    <div class="roomList">
+                        <label class="chatLabel" for="general">
+                            <input checked type="radio" onchange="changeRoom('general')" name="room" id="general" value="general" style="border:1px solid black; margin:1rem;">
+                            General
+                        </label>
+                        <% for(let i=0; i < games.length; i++){%>
+                            <label class="chatLabel" for="<%= games[i].name %> <%= games[i].subname %>">
+                                <input type="radio" onchange="changeRoom(`${this.id}`)" name="room" id="<%= games[i].name %> <%= games[i].subname %>" value="<%= games[i].name %> <%= games[i].subname %>" style="border:1px solid black; margin:1rem;">
+                                <%= games[i].name %> <%= games[i].subname %>
+                            </label>
+                        <% } %>
+                    </div>
+                    <div id="chatBox">
+                        <h2 id="chatName"><%= room = 'general' %></h2>
+                        <div id="messages"></div>
+                        <label for="text">Type your Message:</label>
+                        <div id="commentPost">
+                            <input id="text" placeholder="type your message here...">
+                            <button onclick="sendMyMessage()">Send</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

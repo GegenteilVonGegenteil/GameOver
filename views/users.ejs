@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GameOver - Admin </title>
+        <link href="../../css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <%- include("header") -%>
+        <main>
+            <h1>All Users</h1>
+            <div>
+                <% users.forEach(function(user) { %>
+                    <div class="user">
+                        <div>
+                            <a href="/users/<%= user.userId%>"><%= user.username %></a>
+                            <div class="userButtons">
+                                <a href="/users/<%= user.userId %>/edit">edit</a>
+                                <form action="/users/<%= user.userId %>/delete" method="post">
+                                    <button class="delete" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                        <p><span class="bold">user id: </span><%= user.userId%></p>
+                        <p><span class="bold">email: </span><%= user.email %></p>
+                        <p><span class="bold">admin: </span><%= user.is_admin%></p>
+                        <p><span class="bold">created at: </span><%= user.createdAt %></p>
+                        <p><span class="bold">edited at: </span><%= user.createdAt %></p>
+                    </div>
+                <% }); %>
+            </div>
+        </main>
+    </body>
+</html>

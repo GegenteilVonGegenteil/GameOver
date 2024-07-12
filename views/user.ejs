@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= user.username %>'s Page</title>
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+<body>
+<%- include("header") -%>
+<main>
+    <div class="mainUserInfo">
+        <h1><%= user.username %>'s Page</h1>
+        <img class="profilePic" src="../../uploads/<%= user.profile_pic%>" alt="<%= user.username%> profile pic">
+
+    </div>
+    <%if (currentuser.is_admin) {%>
+        <div class="userButtons">
+            <a href="/users/<%= user.userId %>/edit">edit</a>
+            <form action="/users/<%= user.userId %>/delete" method="post">
+                <button class="delete" type="submit">Delete</button>
+            </form>
+        </div>
+    <%}%>
+    <h2><%= user.username %>'s Reviews</h2>
+    <div id="commentBox">
+        <% for(let i=0; i < comments.length; i++){%>
+            <div class="yourcomment">
+                <div class="name_and_button">
+                    <p><%= user.username %>'s comment on <a href="/games/<%=  games[comments[i].gameId - 2].gameId %>"><%=  games[comments[i].gameId - 2].name %></a></p>
+                    <% if (currentuser.is_admin) { %>
+                        <form action="/comments/<%= comments[i].commentId %>" method="post">
+                            <input type="hidden" name="gameId" value="<%= comments[i].gameId %>"/>
+                            <button class="delete" type="submit">Delete</button>
+                        </form>
+                    <% } %>
+                </div>
+                <div class="commentText">
+                    <div class="rating">
+                        <% for (let x = 0; x < comments[i].rating; x++) {%>
+                            <img src="../../images/pixel_star.png" alt="star">
+                        <% } %>
+                    </div>
+                    <p><%= comments[i].comment %></p>
+                </div>
+            </div>
+        <% } %>
+
+    </div>
+
+</main>
+</body>
+</html>

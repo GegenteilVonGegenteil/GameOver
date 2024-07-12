@@ -1,0 +1,30 @@
+<header>
+    <nav>
+        <div class="links">
+            <% if (currentuser) {%>
+                <% if (currentuser.is_admin) {%>
+                <a href="/users/admin">users</a>
+                <%} else {%>
+                        <a href="/">home</a>
+                    <%}%>
+            <%} else {%>
+                <a href="/">home</a>
+            <%}%>
+            <% if (currentuser) {%>
+                <a href="/games">games</a>
+                <a href="/consoles">consoles</a>
+            <%}%>
+        </div>
+        <a href="/" class="logo"><img alt="Pixel Heart" src="../../images/Logo.png"/></a>
+        <div class="links">
+            <a href="/chat">chat</a>
+            <% if (currentuser) {%>
+                <a href="/profile">profile</a>
+                <a href="/logout">logout</a>
+            <%} else {%>
+                <a href="/login">login</a>
+                <a href="/register">register</a>
+            <%}%>
+        </div>
+    </nav>
+</header>

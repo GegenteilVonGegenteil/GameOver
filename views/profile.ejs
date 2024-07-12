@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= user.username %>'s Page</title>
+        <link href="../../css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <%- include("header") -%>
+        <main>
+            <div class="mainUserInfo">
+                <img class="profilePic" src="../../uploads/<%= user.profile_pic%>" alt="<%= user.username%> profile pic">
+                <h1>Your Page</h1>
+            </div>
+            <h2>Your Information</h2>
+            <div class="userButtons">
+                <a href="/users/<%= user.userId %>/edit">edit</a>
+                <form action="/users/<%= user.userId %>/delete" method="post">
+                    <button class="delete" type="submit">Delete</button>
+                </form>
+            </div>
+            <div class="userProfileInfo">
+                <div class="userProfileProp">
+                    <h3>Username: </h3>
+                    <p><%= user.username %></p>
+                </div>
+                <div class="userProfileProp">
+                    <h3>Email: </h3>
+                    <p><%= user.email %></p>
+                </div>
+                <div class="userProfileProp">
+                    <h3>Member since: </h3>
+                    <p><%= user.createdAt.toLocaleString().split(',')[0].split('.').join('-')%></p>
+                </div>
+            </div>
+            <h2>Your Reviews</h2>
+            <div id="commentBox">
+                <% for(let i=0; i < comments.length; i++){%>
+                    <div class="yourcomment">
+                        Your comment on <a href="/games/<%=  games[comments[i].gameId - 2].gameId %>"><%=  games[comments[i].gameId - 2].name %></a>:
+                        <div class="commentText">
+                            <div class="rating">
+                                <% for (let x = 0; x < comments[i].rating; x++) {%>
+                                    <img src="../../images/pixel_star.png" alt="star">
+                                <% } %>
+                            </div>
+                            <%= comments[i].comment %>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </main>
+    </body>
+</html>

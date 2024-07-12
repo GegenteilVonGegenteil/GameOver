@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameOver - <%= game.name %></title>
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+<body>
+<%- include("header") -%>
+<main class="singleview">
+    <h1><%= game.name%></h1>
+    <div class="infosection">
+        <img class="gameSingleImage" src="../../images/games/<%= game.gameId %>.png" alt="<%= game.name %>" onerror="this.onerror=null;this.src='../../images/MissingNo.png';">
+        <div class="details">
+            <div class="labelPairs">
+                <% if (game.subname) {%>
+                    <div class="labelInfo">
+                        <h3>Subtitle</h3>
+                        <p><%= game.subname %></p>
+                    </div>
+                <% } %>
+                <% if (game.genre) {%>
+                    <div class="labelInfo">
+                        <h3>Genre</h3>
+                        <p><%= game.genre %></p>
+                    </div>
+                <% } %>
+                <% if (game.producer) {%>
+                    <div class="labelInfo">
+                        <h3>Producer</h3>
+                        <p><%= game.producer %></p>
+                    </div>
+                <% } %>
+                <% if (game.releaseyear) {%>
+                    <div class="labelInfo">
+                        <h3>Release year</h3>
+                        <p><%= game.releaseyear %></p>
+                    </div>
+                <% } %>
+                <div class="labelInfo">
+                    <h3>Console</h3>
+                    <a href="../../consoles/<%= console_.consoleId%>"><%= console_.name %></a>
+                </div>
+            </div>
+            <p id="description"><%= game.description %></p>
+        </div>
+    </div>
+    <div class="reviewdiv">
+        <h2>Reviews</h2>
+        <form id="commentForm" class="commentbox" action="/comments" method="POST">
+            <h3>Add review</h3>
+            <input type="hidden" name="gameId" value="<%= game.gameId %>"/>
+            <input type="hidden" name="userId" value="<%= currentuser.userId %>"/>
+            <label for="rating">Rating
+                <select name="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </label>
+            <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+            <button type="submit">Add comment</button>
+        </form>
+        <div  class="comments">
+            <% comments.forEach(function (comment) { %>
+                <div class="comment">
+                    <form action="/comments/<%= comment.commentId %>" method="post">
+                        <div class="comment_info">
+                            <div class="rating">
+                                <% for (let i = 0; i < comment.rating; i++) {%>
+                                    <img src="../../images/pixel_star.png" alt="star">
+                                <% } %>
+                            </div>
+                            <div class="commentAttributes">
+                                <img class="smallPic" src="../../uploads/<%= (users.find(user => user.userId === comment.userId).profile_pic) %>" alt="">
+                                <div class="commentInfoAlign">
+                                    <div class="name_and_button">
+                                        <h3><a href="/users/<%= users.find(user => user.userId === comment.userId).userId %>"><%= users.find(user => user.userId === comment.userId).username %></a>'s Comment</h3>
+                                        <% if (comment.userId === currentuser.userId || currentuser.is_admin) { %>
+                                            <form class="delete" action="/comments/<%= comment.commentId %>" method="post">
+                                                <input type="hidden" name="gameId" value="<%= game.gameId %>"/>
+                                                <button class="delete" type="submit">Delete</button>
+                                            </form>
+                                        <% } %>
+                                    </div>
+                                    <p id="createdat"><%= comment.createdAt.toLocaleString().split(',')[0].split('.').join('-')%></p>
+                                </div>
+                            </div>
+                            <p> <%= comment.comment %> </p>
+                        </div>
+                    </form>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</main>
+</body>
+
+</html>

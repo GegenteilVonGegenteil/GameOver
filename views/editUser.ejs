@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>GameOver - Edit User</title>
+        <link href="../../css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <%- include("header") -%>
+        <main class="userFormMain">
+            <form class="userForm" action="/users/<%=user.userId%>" method="post" enctype="multipart/form-data">
+                <h1>Edit <%= user.username%></h1>
+                <input type="hidden" name="password" value="<%= user.password %>">
+                <input type="hidden" name="is_admin" value="<%= user.is_admin%>">
+                <input type="hidden" name="userId" value="<%= user.userId%>">
+
+                <label for="username">Username
+                <input type="text" name="username" value="<%= user.username%>"  required>
+                </label>
+                <label for="email">E-Mail
+                <input type="email" name="email" value="<%= user.email%>"  required>
+                </label>
+                <div>
+                    <label for="profile_pic">Profile Picture:</label>
+                    <input type="file" name="new_profile_pic" placeholder="Picture" value="<%= user.profile_pic %>">
+                </div>
+                <button type="submit">Edit User</button>
+            </form>
+        </main>
+    </body>
+</html>

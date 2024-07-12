@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameOver - Consoles</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<%- include("header") -%>
+<main>
+    <h1>consoles</h1>
+    <div class="list">
+        <% consoles.forEach(console_ => { %>
+            <div class="item console">
+                <a href="/consoles/<%= console_.consoleId %>">
+                    <p class="releaseyear">
+                        <% if (console_.releaseyear) {%>
+                            <%= console_.releaseyear %>
+                        <%} else {%>
+                            unknown
+                        <%}%>
+                    </p>
+                    <img src="images/consoles/<%= console_.consoleId%>.png" alt="<%= console_.name %>" class="consoleImage" onerror="this.onerror=null;this.src='../../images/MissingNo.png';">
+                    <h2><%= console_.name %></h2>
+                </a>
+            </div>
+        <% }) %>
+    </div>
+</main>
+</body>
+</html>

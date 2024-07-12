@@ -1,0 +1,863 @@
+@font-face {
+    font-family: 'upheaval';
+    src: url('../fonts/upheavtt.ttf');
+}
+
+@font-face {
+    font-family: 'moderndos';
+    src: url('../fonts/ModernDOS.ttf');
+}
+
+:root {
+    --pointer: url("../images/pointer.png"), auto;
+    --marine-950: #1f2a4c;
+    --marine-900: #2c447c;
+    --marine-800: #304d9d;
+    --marine-700: #355dc0;
+    --marine-600: #4677d4;
+    --marine-500: #538cde;
+    --marine-400: #73abe7;
+    --marine-300: #a0c9f0;
+    --marine-200: #c7def6;
+    --marine-100: #dfecfa;
+    --marine-50: #f1f6fd;
+    --cottoncandy-950: #570013;
+    --cottoncandy-900: #8d0e29;
+    --cottoncandy-800: #a90b2e;
+    --cottoncandy-700: #cd0936;
+    --cottoncandy-600: #eb174e;
+    --cottoncandy-500: #fb3975;
+    --cottoncandy-400: #ff669b;
+    --cottoncandy-300: #ffa1c4;
+    --cottoncandy-200: #ffbbd5;
+    --cottoncandy-100: #fee5ee;
+    --cottoncandy-50: #fef1f6;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'moderndos', monospace;
+    padding: 0;
+    margin: 0;
+    background-color: var(--marine-200);
+    color: var(--marine-950);
+    cursor: url("../images/cursor.png"), auto;
+}
+
+a {
+    cursor: var(--pointer);
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 3rem;
+    background-color: var(--marine-950);
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+nav a {
+    color: var(--marine-50);
+    text-decoration: none;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img{
+    height: 1.75rem;
+}
+
+.links {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+main {
+    padding: 3vh 10vw 3vw 10vw;
+}
+
+h1 {
+    font-family: 'upheaval', monospace;
+    font-size: calc(16px + 2.5vw);
+}
+
+h2 {
+    font-family: 'upheaval', monospace;
+    font-size: calc(16px + 1vw);
+}
+
+/* CSS for the index page */
+.pixelbackgound {
+    background-image: url("../images/pixelbackground.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#project {
+    width: 60%;
+}
+
+#project div {
+    background-color: rgba(241, 246, 253, 0.74);
+    border: var(--marine-950) 3px solid;
+    padding: 1vw;
+}
+
+#project h1 {
+    font-size: calc(16px + 3vw);
+    color: var(--cottoncandy-400);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--marine-950);
+}
+
+#project h2 {
+    font-size: calc(16px + 2vw);
+}
+
+#project p {
+    font-size: calc(10px + 0.75vw);
+    width: 100%;
+    justify-self: center;
+}
+
+
+.landing {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 10vw;
+}
+
+#developers {
+    display: flex;
+    flex-direction: column;
+}
+
+.member h3 {
+    -webkit-text-stroke: var(--marine-50);
+    -webkit-text-stroke-width: 0.045rem;
+    font: 1.75rem 'upheaval', monospace;
+    margin: 1rem;
+    font-weight: bold;
+}
+
+#team{
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    max-width: 80vw;
+    flex-wrap: wrap;
+}
+
+#developers img{
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    border: 3px solid var(--marine-950);
+}
+
+.clickable :hover {
+    cursor: var(--pointer);
+    text-decoration: underline;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member {
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* CSS for the games/console page */
+.list {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+    margin-top: 10vh;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    text-decoration: none;
+}
+
+.game {
+    margin-bottom: 1vh;
+    width: 15vw;
+    height: 50vh;
+}
+
+.console {
+    margin-bottom: 0.5vh;
+    width: 15vw;
+    height: 36vh;
+}
+
+.item a {
+    font-family: moderndos, monospace;
+    color: var(--marine-950);
+    text-decoration: none;
+}
+
+.gameImage {
+    width: 12vw;
+    height: 35vh;
+    object-fit: cover;
+    border: var(--marine-950) 3px solid;
+}
+
+.consoleImage {
+    width: 14vw;
+    height: 22vh;
+    object-fit: cover;
+    border: var(--marine-950) 3px solid;
+}
+
+.item h2 {
+    font-size: calc(16px + 0.5vw);
+    max-width: 14ch;
+    font-family: moderndos, monospace;
+    margin: 1vh 0 0 0;
+}
+
+.releaseyear {
+    text-align: end;
+    margin: 0 0 1vh 0;
+}
+
+/* CSS for the game/console page */
+
+.infosection {
+    display: flex;
+    justify-content: space-between;
+    gap: 2vw;
+}
+
+.infosection img {
+    object-fit: cover;
+    border: var(--marine-950) 3px solid;
+}
+
+.gameSingleImage {
+    width: 18vw;
+    height: 52.5vh;
+}
+
+.consoleSingleImage {
+    width: 30vw;
+    height: 52.5vh;
+}
+
+.infosection p {
+    font-family: upheaval, monospace;
+}
+
+.infosection span, a {
+    font-family: moderndos, monospace;
+}
+
+.labelPairs {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.labelInfo h3 {
+    font-family: 'moderndos', monospace;
+    font-size: calc(4px + 0.65vw);
+    margin: 0;
+}
+
+.labelInfo p {
+    font-size: calc(8px + 1vw);
+    font-family: moderndos, monospace;
+    margin: 0;
+}
+
+.labelInfo a {
+    color: var(--cottoncandy-950);
+    text-decoration: none;
+    font-size: calc(8px + 1vw);
+    font-family: moderndos, monospace;
+    margin: 0;
+}
+
+.labelInfo a:hover {
+    text-decoration: underline;
+}
+
+.details {
+    width: 100%;
+    height: calc(52.5vh - 2vw);
+    padding: 1vw;
+    overflow-y: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.commentAttributes {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    margin: 0 0 0 1.5vw;
+}
+
+.commentAttributes p {
+    margin: 0;
+}
+
+.picAndInfo {
+    display: flex;
+    gap: 2vw;
+    align-items: center;
+}
+
+.commentInfoAlign {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.commentInfoAlign p {
+    text-align: start;
+}
+
+.name_and_button a {
+    color: var(--cottoncandy-950);
+    text-decoration: none;
+}
+
+.name_and_button a:hover {
+    color: var(--marine-950);
+    text-decoration: underline;
+}
+
+#description {
+    font-family: moderndos, monospace;
+    font-size: calc(8px + 1vw);
+    text-align: left;
+    width: 70%;
+}
+
+.commentbox textarea{
+    resize: none;
+    width: 99%;
+    border-radius: 0;
+    border: 3px solid var(--marine-950);
+}
+
+.commentbox button {
+    font-family: moderndos, monospace;
+    border: 3px solid var(--marine-950);
+    background-color: var(--marine-900);
+    color: var(--marine-50);
+    padding: 0.5vw;
+    margin: 0.5vw;
+    cursor: var(--pointer);
+}
+
+#commentForm select {
+    border: 3px solid var(--marine-950);
+    border-radius: 0;
+    font-family: moderndos, monospace;
+    color: var(--marine-950);
+    background-color: var(--marine-50);
+    font-size: 1.25rem;
+    margin-bottom: 0.5vw;
+}
+
+#commentForm option {
+    color: var(--marine-950);
+    background-color: var(--marine-50);
+}
+
+#commentForm label {
+    font-family: moderndos, monospace;
+    color: var(--marine-950);
+    font-size: 1.25rem;
+}
+
+
+.reviewdiv {
+    margin-top: 10vh;
+}
+
+.reviewdiv form {
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+}
+
+.rating {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+.comment_info .rating {
+    margin-left: 4.5vw;
+}
+
+.rating img{
+    width: 1.5vw;
+    height: 1.5vw;
+    margin: 0 0 0 1vw;
+}
+
+.delete {
+    background-color: var(--cottoncandy-300);
+    color: var(--cottoncandy-950);
+    border: var(--cottoncandy-950) 3px solid;
+    font-family: upheaval, monospace;
+    padding: 0.5vw;
+    cursor: var(--pointer);
+    font-size: calc(8px + 0.5vw);
+}
+
+.delete:hover {
+    background-color: var(--cottoncandy-400);
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    margin-top: 10px;
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid var(--marine-950);
+    background-color: var(--marine-50);
+    padding: 0 2vw;
+}
+
+.comment p {
+    margin: 0 3vw 1vh 5.5vw;
+}
+
+.comment_info {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.comment_content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 6rem;
+}
+
+.smallPic {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    border: 3px solid var(--marine-950);
+    object-fit: cover;
+}
+
+.consoleGames {
+    display: flex;
+}
+
+.name_and_button {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+}
+
+#createdat {
+    font-size: 0.75rem;
+    color: var(--marine-900);
+    margin: 0 0 2vh 0;
+}
+
+
+/*           CSS for the Chat                                       */
+
+#chatTitle {
+    position: relative;
+    left: 5vw;
+    font-size: calc(12px + 2vw);
+}
+
+.centerdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#messages {
+    background-color: var(--marine-50);
+    padding: 1vw;
+    border: 3px solid var(--marine-950);
+    align-self: center;
+    margin: 10px 10px 20px 10px;
+    overflow: scroll;
+    height: 50%;
+}
+
+#messages p {
+    background-color: var(--cottoncandy-300);
+    border: 3px solid var(--marine-950);
+    padding: 0.5vw;
+}
+
+#chat {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    gap:5vw;
+    margin: 4px;
+    width: 90%;
+}
+
+.roomList {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    background-color: var(--marine-50);
+}
+
+.roomList h1 {
+    text-align: center;
+}
+
+.chatLabel {
+    font-size: 1rem;
+    margin: 2px;
+    border: 3px solid var(--marine-950);
+    background-color: var(--marine-100);
+    overflow: auto;
+    padding: 10px 4px;
+    text-align: center;
+    cursor: var(--pointer);
+}
+
+.chatLabel:hover {
+    background-color: var(--marine-200);
+    box-shadow: 2px 1px 0 var(--marine-950);
+}
+
+.chatLabel:has(> input:checked) { /* (RADIO CHECKED) STYLES */
+    background-color: var(--cottoncandy-300);
+    box-shadow: 2px 1px 0 var(--cottoncandy-950) ;
+    border: 3px solid var(--cottoncandy-950);
+    color: var(--cottoncandy-950);
+}
+
+.chatLabel input {
+    display: none;
+}
+
+#chatBox {
+    width: 100%;
+    height: 70vh;
+    background-color: var(--marine-100);
+}
+
+#chatName {
+    color: var(--cottoncandy-500);
+}
+
+#chatName, #chatBox label {
+    margin-left: 10px;
+}
+
+
+#chatBox input {
+    width: 90%;
+    border: 3px solid var(--marine-950);
+    margin: 10px;
+    font-family: moderndos, monospace;
+}
+
+#chatBox button {
+    border: 3px solid var(--marine-950);
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: var(--cottoncandy-300);
+    font-family: upheaval, monospace;
+    display: block;
+    cursor: var(--pointer);
+}
+
+.roomList, #chatBox {
+    padding: 4px;
+    margin: 2px;
+    border: 3px solid var(--marine-950);
+}
+
+#commentPost {
+    display: flex;
+    gap: 0.5vw;
+    margin-top: 10px;
+}
+
+/* CSS for user page */
+#commentBox {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    margin-top: 10px;
+}
+
+.yourcomment {
+    border: 3px solid var(--marine-950);
+    padding: 0.5vw;
+    background-color: var(--marine-50);
+}
+
+.yourcomment a {
+    color: var(--cottoncandy-950);
+    text-decoration: none;
+}
+
+.yourcomment a:hover {
+    text-decoration: underline;
+}
+
+.commentText {
+    margin-top: 2vh;
+    margin-left: 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.userProfileInfo {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid var(--marine-950);
+    padding: 0.5vw;
+    background-color: var(--marine-50);
+}
+
+.userProfileProp {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* CSS for the admin users page */
+
+.user {
+    margin-top: 10px;
+    padding: 1vw;
+    border: var(--marine-950) 3px solid;
+    background-color: rgba(255, 255, 255, 0.58);
+}
+
+.user a{
+    font-family: 'upheaval', monospace;
+    font-size: calc(16px + 1vw);
+    color: var(--marine-950);
+    text-decoration: none;
+}
+
+.user a:hover {
+    text-decoration: underline;
+    cursor: var(--pointer);
+}
+
+.user div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.profilePic {
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    border: 3px solid var(--marine-950);
+    object-fit: cover;
+}
+
+.mainUserInfo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+}
+
+.mainUserInfo h1 {
+    margin-top: 0;
+}
+
+.userButtons {
+    display: flex;
+    gap: 1vw;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+}
+
+.userButtons a {
+    background-color: var(--marine-300);
+    color: var(--marine-950);
+    border: var(--marine-950) 3px solid;
+    font-family: upheaval, monospace;
+    padding: 0.5vw;
+    cursor: var(--pointer);
+    font-size: calc(8px + 0.5vw);
+    text-decoration: none;
+}
+
+.userButtons a:hover {
+    background-color: var(--marine-400);
+}
+
+/* CSS for login/register/edituser page */
+.userFormMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.userForm {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vw;
+    gap: 1vw;
+    border: var(--marine-950) 3px solid;
+    width: fit-content;
+    padding: 4vw 2vw;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.userFormMain h1 {
+    margin-top: 0;
+    font-size: calc(16px + 1.5vw);
+}
+
+.userFormMain input {
+    width: 100%;
+    border: var(--marine-950) 3px solid;
+    border-radius: 0;
+    font-family: moderndos, monospace;
+    color: var(--marine-950);
+    background-color: var(--marine-50);
+    font-size: 1.25rem;
+    padding: 0.25vw;
+    margin: 1vw 0;
+}
+
+.userFormMain label {
+    font-family: moderndos, monospace;
+    color: var(--marine-950);
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.userFormMain button {
+    font-family: moderndos, monospace;
+    font-size: 1.25rem;
+    border: 3px solid var(--marine-950);
+    background-color: var(--cottoncandy-200);
+    color: var(--marine-950);
+    padding: 0.5vw;
+    margin: 0.5vw;
+    cursor: var(--pointer);
+}
+
+/* CSS for the 404 page */
+#pink {
+    background-color: var(--cottoncandy-200);
+}
+
+.backButton {
+    font-family: upheaval, monospace;
+    font-size: 1.25rem;
+    border: 3px solid var(--marine-950);
+    background-color: var(--cottoncandy-400);
+    color: var(--marine-950);
+    padding: 0.5vw;
+    margin: 0.5vw;
+    top: 20px;
+    position: relative;
+    cursor: var(--pointer);
+    text-decoration: none;
+}
+
+.backButton:hover {
+    background-color: var(--cottoncandy-500);
+    text-decoration: underline;
+}
+
+.fofPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.fofPage h1 {
+    display: none;
+}
+
+.fofPage > p {
+    font-size: calc(8px + 2vw);
+    text-align: center;
+}
+
+.fof > p {
+    font-size: calc(84px + 10vw);
+    color: var(--marine-100);
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--marine-950);
+    margin: 0;
+}
+
+.fof {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50vw;
+}
+
+.fof img {
+    height: 50vh;
+    object-fit: contain;
+}

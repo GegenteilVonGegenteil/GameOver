@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GameOver - <%= console_.name%></title>
+        <link href="../../css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <%- include("header") -%>
+    <main>
+        <h1><%= console_.name%></h1>
+        <div class="infosection">
+            <img class="consoleSingleImage" src="../../images/consoles/<%= console_.consoleId %>.png" alt="<%= console_.name %>" onerror="this.onerror=null;this.src='../../images/MissingNo.png';">
+            <div class="details">
+                <div class="labelPairs">
+                    <% if (console_.company) {%>
+                        <div class="labelInfo">
+                            <h3>Company</h3>
+                            <p><%= console_.company %></p>
+                        </div>
+                    <% } %>
+                    <% if (console_.releaseyear) {%>
+                            <div class="labelInfo">
+                                <h3>Release Year</h3>
+                                <p><%= console_.releaseyear %></p>
+                            </div>
+                    <% } %>
+                </div>
+                <p id="description"><%= console_.description %></p>
+            </div>
+        </div>
+        <h2>Games</h2>
+        <div class="list">
+            <% games.forEach(game => { %>
+                <div class="item game">
+                    <a href="/games/<%= game.gameId %>">
+                        <p class="releaseyear">
+                            <% if (game.releaseyear) {%>
+                                <%= game.releaseyear %>
+                            <%} else {%>
+                                unknown
+                            <%}%>
+                        </p>
+                        <img src="../../images/games/<%= game.gameId%>.png" alt="<%= game.name %>" class="gameImage" onerror="this.onerror=null;this.src='../../images/MissingNo.png';">
+                        <h3><%= game.name %></h3>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+    </main>
+    </body>
+</html>
